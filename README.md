@@ -1,7 +1,8 @@
 
 # [EPAX-AI](https://epaxai.azurewebsites.net/) [https://epaxai.azurewebsites.net/]
+<h3>
+A machine learning based ai assistant made for techwithtim code-jam, which can assist you in a various field,  the complete guide to use is provided below😀 <h3>
 
-A machine learning based ai assistant made for techwithtim code-jam, which can assist you in a various field,  the complete guide to use is provided below😀 
 <br>
 
 ![Blueprint](https://media.discordapp.net/attachments/770563766370566180/805070659684139018/virtualassistant.html_-_Google_Chrome_30-01-2021_19_11_10_3.png)
