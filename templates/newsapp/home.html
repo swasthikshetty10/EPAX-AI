@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BCLNEWS</title>
+    <script data-ad-client="ca-pub-4376712269282648" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </head>
+<body>
+<!-- Nav  bar   -->
+<nav class="navbar navbar-expand-lg navbar-light  " style="background-color: #72bce7;">
+    <a class="navbar-brand" href="#"> <img src="https://cdn.discordapp.com/attachments/773803149890027520/780368442246692914/coollogo_com-235521124-removebg-preview_1.png" width="200" height="40" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/news">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news/sports">Sports</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/news/esports">Esports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news/lifestyle">Lifestyle</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Developer
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="https://github.com/swasthikshetty10">Github</a>
+            <a class="dropdown-item" href="https://www.linkedin.com/in/swasthik-shetty-15632b1b8">LinkedIn</a>
+            <a class="dropdown-item" href="https://www.instagram.com/swasthik__shetty10/">Instagram</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- LOGO   -->
+  <a href = "#">
+  <img src="https://cdn.discordapp.com/attachments/773803149890027520/780379929116278814/coollogo_com-182742490.png" class="img-fluid" alt="Responsive image">
+  </a>
+  
+ 
+  <!-- about page-->
+
+  <!-- news -->
+  
+
+
+    <!--jumbotron  <hr class="my-4">-->
+
+  <div class="container-fluid" style="text-align: center">
+    <a type="button" href = "/news"class="btn btn-secondary">Home</a>
+    <a type="button" href = "sports" class="btn btn-success">Sports</a>
+    <a type="button" href = "lifestyle" class="btn btn-warning">Lifestyle</a>
+    <a type="button" href = "cities" class="btn btn-info">Cities</a>
+    <a type="button" href = "esports" class="btn btn-danger">Esports</a>
+    
+  </div>
+ <br>
+
+ 
+ {% block content %}
+   <h1 class = "font-italic"style="text-align: center" ><b>INDIAS TOP NEWS</b></h1>  
+    {% if num > 1 %}
+      <p class = "font-italic"style="text-align: center" ><button type="button" class="btn btn-outline-dark btn-sm ">Page {{num}}</button></p>  
+    {% endif %}
+  <div class = "container-fluid">
+   {% for post in final_postings %}
+   <br>
+   <!-- titles , links , dates , descriptions , images -->
+  
+   <div class="card mb-3" style="max-width: 1540px;">
+    <div class="row col-md-*">
+      <div class="col-md-4">
+        <img src="{{ post.4 }}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          
+          <form action="{%url 'article'%}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="article_" value="{{post.1}}" placeholder="article_">
+            <a href="#" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
+          </form>
+          <p class="card-text">{{ post.3 }}</p>
+          <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
+          <form action="{% url 'article'%}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="article_" value="{{ post.1}}" placeholder="article_">
+            <button class="btn btn-info " type="submit" name="action">
+              view full article
+            </button>
+          </form>
+        </div>
+      </div>
+     </div>
+   </div>
+   {% endfor %}
+  </div>
+
+  <nav aria-label="Page navigation example ">
+    <ul class="pagination " >
+      {% if num == 1 %}
+      <li class="page-item"><a class="page-link bg-dark text-white" href="/home">Previous</a></li>
+      {% endif %}
+      {% if num > 1 %}
+      <li class="page-item"><a class="page-link bg-dark text-white " href="/home/page/{{ num |add:'-1' }}">Previous</a></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link bg-success text-white" href="/home/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
+      <li class="page-item"><a class="page-link bg-success text-white" href="/home/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
+      <li class="page-item"><a class="page-link bg-success text-white" href="/home/page/{{num | add:'3'}}">{{num |add:"3"}}</a></li>
+      <li class="page-item"><a class="page-link bg-dark text-white" href="/home/page/{{ num |add:'1' }}">Next</a></li>
+    </ul>
+  </nav>
+
+  
+ {% endblock content %}
+ <div class="jumbotron">
+  <h3 class="lead font-weight-bold" style="text-align: center">Made by <a href = "https://github.com/swasthikshetty10">!ΞPAX㋡</a> aka <a  href = "https://www.linkedin.com/in/swasthik-shetty-15632b1b8">Swasthik Shetty</a> </h3>
+  <hr class="my-4">
+  <p class="font-weight-normal" style = "text-align: center"><a class="btn btn-block btn-social btn-twitter">   
+<a class = " btn btn-outline-info" href = "https://www.linkedin.com/in/swasthik-shetty-15632b1b8">LinkedIn  </a> 
+<a class = " btn btn-outline-info" href = "https://www.instagram.com/swasthik__shetty10/">Instagram  </a> 
+<a class = " btn btn-outline-info" href = "https://github.com/swasthikshetty10">Github  </a> 
+<a class = " btn btn-outline-info" href = "https://discord.gg/aUppFDZ">Discord  </a></p>
+</div>
+</body>
+</html>

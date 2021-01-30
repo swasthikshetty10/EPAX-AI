@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  {% block body %}
+
+  <nav class="navbar navbar-dark bg-dark">
+    <!-- Navbar content -->
+
+  </nav>
+
+
+
+  <h2 style="text-align:center">Login to EPAX-AI</h2>
+  <p></p>
+
+  <div class="container">
+
+    <div class="row">
+      <h2 style="text-align:center">Login with Social Media</h2>
+
+
+      <div class="col">
+        <a href="/accounts/google/login/?process=login" class="google btn"><i class="fa fa-google fa-fw">
+          </i> Login with Google
+        </a>
+        <a href="/accounts/github/login/?process=login" class="github btn">
+          <i class="fa fa-github fa-fw"></i> Login with Github
+        </a>
+
+        <a href="#" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+        </a>
+
+      </div>
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Or sign in manually:</p>
+        </div>
+        <form method="POST" action="/accounts/login/">
+          {% csrf_token %}
+          <input type="text" name="login" placeholder="Username" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <input type="submit" value="Login">
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-container">
+    <div class="row">
+      <div class="col">
+        <a href="/accounts/signup" style="color:white" class="btn">Sign up</a>
+      </div>
+      <div class="col">
+        <a href="#" style="color:white" class="btn">Forgot password?</a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </form>
+  </div>
+
+  {% endblock body %}
+</body>
+
+</html>

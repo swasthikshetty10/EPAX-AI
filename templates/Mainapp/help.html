@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assistant Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <title>EPAX-AI | Help</title>
+
+    <style type="text/css">
+        html,
+        body {
+            height: 200px;
+        }
+
+        /*--thank you pop starts here--*/
+        .thank-you-pop {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .thank-you-pop img {
+            width: 76px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .thank-you-pop h1 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: #5C5C5C;
+        }
+
+        .thank-you-pop p {
+            font-size: 20px;
+            margin-bottom: 27px;
+            color: #5C5C5C;
+        }
+
+        .thank-you-pop h3.cupon-pop {
+            font-size: 25px;
+            margin-bottom: 40px;
+            color: #222;
+            display: inline-block;
+            text-align: center;
+            padding: 10px 20px;
+            border: 2px dashed #222;
+            clear: both;
+            font-weight: normal;
+        }
+
+        .thank-you-pop h3.cupon-pop span {
+            color: #03A9F4;
+        }
+
+        .thank-you-pop a {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 9px 20px;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+            background-color: #8BC34A;
+            border-radius: 17px;
+        }
+
+        .thank-you-pop a i {
+            margin-right: 5px;
+            color: #fff;
+        }
+
+        #ignismyModal .modal-header {
+            border: 0px;
+        }
+
+        /*--thank you pop ends here--*/
+    </style>
+</head>
+
+<body style="background-color: rgb(22, 22, 34)">
+    <nav class="navbar navbar-expand-lg navbar-ligh" style="background-color: #000000">
+        <a class="navbar-brand" href="/" style="color: white">
+            <img src="https://images-ext-1.discordapp.net/external/NCz4zVA5SDnqy1OgysBgKsDR3DgkEotby9ZADexHZ_o/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/630686815736692746/89a1377032b7030586ba964485ca23fc.webp?width=603&height=603"
+                width="30" height="30" class="d-inline-block align-top" alt="" />
+            EPAX-AI
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
+            style="background-color: rgb(110, 240, 24)">
+            <span class="navbar-toggler-icon"><i class="fa fa-sort-down"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: white" onclick="openfeedback()"><i
+                            class="fa fa-comment"></i>Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/swasthikshetty10" style="color: white"><i
+                            class="fa fa-github"></i> GitHub</a></a>
+                </li>
+
+
+                <li style="text-align: center"><a href="#"></li>
+            </ul>
+            <div>
+                <a id="loginbutton" href="/accounts/login" type="button" class="btn btn-info">Login</a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <!-- feedback form-->
+    <div id="sendfeedback" class="container-fluid">
+        <div class="jumbotron">
+
+            <div class="form-group">
+                <h3>Feedback</h3>
+
+                <textarea class="form-control" id="feedtextarea" rows="5" placeholder="Write feedback here"></textarea>
+            </div>
+            <div class="align-right">
+
+                <button class="btn btn-primary" onclick="sendfeedback()" data-toggle="modal" href="#ignismyModal">
+                    Submit
+                </button>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="container">
+        <div class="card-columns">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">1) QUESTIONS❓</div>
+                <div class="card-body">
+                    <h5 class="card-title">ASK QUESTIONS</h5>
+                    <p class="card-text">you can ask question related <b>Mathematical calculations</b> , <b>Science</b>,
+                        <b>Facts</b> ,<b> Information </b> etc ,for example you can ask "<u>what is temperature in
+                            bangalore?</u>"</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">2) Note-Taking📝</div>
+                <div class="card-body">
+                    <h5 class="card-title">Save/delete/read Notes</h5>
+                    <p class="card-text">you can save your notes and get when you want just say add delete or read notes
+                    </p>
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">3) Todo-List✔️</div>
+                <div class="card-body">
+                    <h5 class="card-title">How to add?</h5>
+                    <p class="card-text">you can add todo list just say <b>Add todo</b>.</p>
+                </div>
+            </div>
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">4) Web search🔍</div>
+                <div class="card-body">
+                    <h5 class="card-title">Let me search for you</h5>
+                    <p class="card-text">Optimised top web results just say <b>search</b> and say query</p>
+                </div>
+            </div>
+
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">5) Translator🌎</div>
+                <div class="card-body">
+                    <h5 class="card-title">Translate to english</h5>
+                    <p class="card-text">you can translate any language to english just say <b>translate</b> and
+                        sentense to translate</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">6) Memes🤣</div>
+                <div class="card-body">
+                    <h5 class="card-title">Need Memes?</h5>
+                    <p class="card-text">Just say show memes.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">7) Jokes😆</div>
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #000000;">Tell me a joke</h5>
+                    <p class="card-text" style="color: #000000;">you can ask for jokes just say <b>tell me a joke<b> .
+                    </p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">8) Music🎵</div>
+                <div class="card-body">
+                    <h5 class="card-title">Lets play some Music</h5>
+                    <p class="card-text">Hey want yo listen some music just say <B>play music</B> </p>
+                </div>
+            </div>
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">9) Games🎮 </div>
+                <div class="card-body">
+                    <h5 class="card-title">Lets play game</h5>
+                    <p class="card-text">Some cool browser games just for you.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">10)💬chat with me</div>
+                <div class="card-body">
+                    <h5 class="card-title">You can TEXT CHAT</h5>
+                    <p class="card-text">you can <B>text chat</B>with me if you want! how awesome it is? click on info
+                        button to enable chat</p>
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">11)🆕EXTRA'S</div>
+                <div class="card-body">
+                    <h5 class="card-title">There are more then this</h5>
+                    <p class="card-text">you can do many more things with EPAX-AI eg, set timmer etc. and there are
+                        some hidden easter eggs go and find out😉</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <br>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!--Model Popup starts-->
+
+
+    <div class="modal fade" id="ignismyModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="thank-you-pop">
+                        <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+                        <h1>Thank You!</h1>
+                        <p>Your feedback was sent!</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <a class="btn btn-info" href="/" style="position: fixed; bottom : 15px; right : 25px">Back</a>
+    <!--Model Popup ends-->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+        function openfeedback() {
+            document.getElementById("sendfeedback").style.display = "block";
+        }
+
+        function sendfeedback() {
+            var fvalue = document.getElementById("feedtextarea").value;
+            //console.log(fvalue);
+            var url = `/sendfeedback/${fvalue}`;
+            fetch(url)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById("sendfeedback").style.display = "none";
+                    document.getElementById("feedtextarea").value = "";
+                });
+        }
+    </script>
+</body>
+
+</html>

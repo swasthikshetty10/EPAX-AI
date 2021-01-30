@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TO-DO-APP</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body style="background-color:#1F1B24;">
+
+
+<nav class="navbar navbar-dark bg-primary">
+<div class="container">
+
+    <a class="navbar-brand"> <h1><font color="white"><i><b>To_Do App </b></i></font></font> </h1></a>
+
+
+
+</div>
+</nav>
+ <div class="container">
+{%block content%}
+{%endblock content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ </div>
+<div class="jumbotron botnav">
+  <h3 class="lead font-weight-bold" style="text-align: center">Made by <a href = "https://github.com/swasthikshetty10">!ΞPAX㋡</a> aka <a  href = "https://www.linkedin.com/in/swasthik-shetty-15632b1b8">Swasthik Shetty</a> </h3>
+  <hr class="my-4">
+  <p class="font-weight-normal" style = "text-align: center"><a class="btn btn-block btn-social btn-twitter">   
+<a class = " btn btn-outline-info" href = "https://www.linkedin.com/in/swasthik-shetty-15632b1b8">LinkedIn  </a> 
+<a class = " btn btn-outline-info" href = "https://www.instagram.com/swasthik__shetty10/">Instagram  </a> 
+<a class = " btn btn-outline-info" href = "https://github.com/swasthikshetty10">Github  </a> 
+<a class = " btn btn-outline-info" href = "https://discord.gg/aUppFDZ">Discord  </a></p>
+</div>
+</body>
+</html>

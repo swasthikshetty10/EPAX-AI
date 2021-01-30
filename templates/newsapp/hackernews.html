@@ -1,0 +1,56 @@
+{% extends 'newsapp/home.html' %} {% block content %}
+<h1 class="font-italic" style="text-align: center"><b>TOP Hacker NEWS</b></h1>
+{% if num > 1 %}
+<p class="font-italic" style="text-align: center">
+  <button type="button" class="btn btn-outline-dark btn-sm">Page</button>
+</p>
+{% endif %}
+<br />
+<div class="container-fluid">
+  {% for post in final_postings %}
+  <!-- titles , links , dates , descriptions , images -->
+  <div class="card mb-3" style="max-width: 1540px">
+    <div class="row col-md-*">
+      <div class="col-md-4">
+        <img src="{{ post.3 }}" class="card-img" alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{post.0}}</h5>
+          <p class="card-text">{{post.2}}...</p>
+          <p class="card-text"><small class="text-muted">{{post.1}}</small></p>
+        </div>
+        <form action="{% url 'hackerarticle'%}" method="post">
+          {% csrf_token %}
+          <input
+            type="hidden"
+            name="hackerarticle_"
+            value="{{ post.4}}"
+            placeholder="hackerarticle_"
+          />
+          <button class="btn btn-info btn-sm" type="submit" name="action">
+            view full article
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<!--
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if num == 1 %}
+    <li class="page-item"><a class="page-link bg-success text-white" href="/sports/page/1">Previous</a></li>
+    {% endif %}
+    {% if num > 1 %}
+    <li class="page-item"><a class="page-link bg-dark text-white" href="/sports/page/{{ num |add:'-1' }}">Previous</a></li>
+    {% endif %}
+    
+    <li class="page-item"><a class="page-link bg-success text-white" href="/sports/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
+    <li class="page-item"><a class="page-link bg-success text-white" href="/sports/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
+    <li class="page-item"><a class="page-link bg-success text-white" href="/sports/page/{{num | add:'3'}}">{{num |add:"3"}}</a></li>
+    <li class="page-item"><a class="page-link bg-dark text-white" href="/sports/page/{{ num |add:'1' }}">Next</a></li>
+  </ul>
+</nav> -->
+{% endblock content %}

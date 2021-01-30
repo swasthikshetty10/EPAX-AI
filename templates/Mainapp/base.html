@@ -1,0 +1,406 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EPAX-AI | The virtual assistant </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  </script>
+
+  <title>Aligning Buttons</title>
+
+  <style type="text/css">
+    html,
+    body {
+      height: 200px;
+    }
+
+    .searchbar {
+      margin-bottom: auto;
+      margin-top: auto;
+      height: 60px;
+      background-color: #353b48;
+      border-radius: 30px;
+      padding: 10px;
+    }
+
+    .search_input {
+      color: white;
+      border: 0;
+      outline: 0;
+      background: none;
+      width: 0;
+      caret-color: transparent;
+      line-height: 40px;
+      transition: width 0.4s linear;
+    }
+
+    .searchbar:hover>.search_input {
+      padding: 0 10px;
+      width: 450px;
+      caret-color: red;
+      transition: width 0.4s linear;
+    }
+
+    .searchbar:hover>.search_icon {
+      background: white;
+      color: #e74c3c;
+    }
+
+    .search_icon {
+      height: 40px;
+      width: 40px;
+      float: right;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .chat-list {
+      padding: 0;
+      font-size: 0.8rem;
+    }
+
+    .chat-list li {
+      margin-bottom: 10px;
+      overflow: auto;
+      color: #ffffff;
+    }
+
+    .chat-list .chat-img {
+      float: left;
+      width: 48px;
+    }
+
+    .chat-list .chat-img img {
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+      width: 100%;
+    }
+
+    .chat-list .chat-message {
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+      background: #5a99ee;
+      display: inline-block;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .chat-list .chat-message:before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      width: 0;
+      height: 0;
+    }
+
+    .chat-list .chat-message h5 {
+      margin: 0 0 5px 0;
+      font-weight: 600;
+      line-height: 100%;
+      font-size: 0.9rem;
+    }
+
+    .chat-list .chat-message p {
+      line-height: 18px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chat-list .chat-body {
+      margin-left: 20px;
+      float: left;
+      width: 70%;
+    }
+
+    .chat-list .in .chat-message:before {
+      left: -12px;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid #5a99ee;
+    }
+
+    .chat-list .out .chat-img {
+      float: right;
+    }
+
+    .chat-list .out .chat-body {
+      float: right;
+      margin-right: 20px;
+      text-align: right;
+    }
+
+    .chat-list .out .chat-message {
+      background: #fc6d4c;
+    }
+
+    .chat-list .out .chat-message:before {
+      right: -12px;
+      border-bottom: 20px solid transparent;
+      border-left: 20px solid #fc6d4c;
+    }
+
+    .card .card-header:first-child {
+      -webkit-border-radius: 0.3rem 0.3rem 0 0;
+      -moz-border-radius: 0.3rem 0.3rem 0 0;
+      border-radius: 0.3rem 0.3rem 0 0;
+    }
+
+    .card-headera {
+      background: #17202b;
+      font-size: 1rem;
+      text-align: right;
+      color: #ffffff;
+    }
+
+    .card .card-header {
+      background: #17202b;
+      border: 0;
+      font-size: 1rem;
+      padding: 0.65rem 1rem;
+      position: relative;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .content {
+      margin-top: 40px;
+    }
+  </style>
+
+
+</head>
+
+<body style="background-color: rgb(22, 22, 34)">
+  <!-- Nav bar  -->
+  <nav class="navbar navbar-dark " style="background-color: #090c07;">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://images-ext-1.discordapp.net/external/NCz4zVA5SDnqy1OgysBgKsDR3DgkEotby9ZADexHZ_o/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/630686815736692746/89a1377032b7030586ba964485ca23fc.webp?width=603&height=603"
+        width="30" height="30" class="d-inline-block align-top" alt="" />
+      EPAX-AI
+    </a>
+    <div>
+      <a id="loginbutton" href="/accounts/login" type="button" class="btn btn-info">Login</a>
+    </div>
+  </nav>
+
+  <!-- Talk button -->
+
+  <div class="container h-100">
+    <div class="d-flex h-100">
+      <div class="align-self-start mr-auto"></div>
+      <div class="align-self-center mx-auto">
+        <div class="col-md-12 text-center">
+          <div class="ripplediv">
+            <div class="rim1"></div>
+            <div class="rim2"></div>
+            <div class="rim3"></div>
+          </div>
+          <a type="button" class="micbtn" onclick="onclick_rec()">
+            <i class="fa fa-microphone" aria-hidden="true"></i>
+
+          </a>
+
+        </div>
+      </div>
+      <div class="align-self-end ml-auto"></div>
+    </div>
+  </div>
+
+  <!--  msg display  -->
+  <div class="text-center">
+    <h3 id="textval" style="color:rgb(169, 65, 201)"></h3>
+    <h3 id="response" style="color:rgb(123, 255, 0)"></h3>
+  </div>
+  <!-- chat -->
+  <div id="chatcontent" class="container content" style="display: none;">
+    <div class="row">
+      <div class="col-xl-12 ">
+        <div class="card">
+          <a class="card-headera btn" style="color: #ffffff;" onclick=" openchat(false)"
+            style="text-align: right;">🗙</a>
+          <div class="card-header" style="text-align: center;">
+            <B>Chat With EPAX-AI</B>
+          </div>
+
+          <div class="card-body height3" style="overflow-y: scroll; height:300px;">
+            <ul id="chaticon" class="chat-list">
+              <!-- <li class="in">
+                <div class="chat-img">
+                  <img alt="Avtar"
+                    src="https://images-ext-1.discordapp.net/external/NCz4zVA5SDnqy1OgysBgKsDR3DgkEotby9ZADexHZ_o/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/630686815736692746/89a1377032b7030586ba964485ca23fc.webp" />
+                </div>
+                <div class="chat-body">
+                  <div class="chat-message">
+                    <h5>EPAX AI</h5>
+                    <p>hi</p>
+                  </div>
+                </div>
+              </li> -->
+
+              <!--               
+              <li class="out">
+                <div class="chat-img">
+                  <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar6.png" />
+                </div>
+                <div class="chat-body">
+                  <div class="chat-message">
+                    <h5>You</h5>
+                    <p>Next level veard</p>
+                  </div>
+                </div>
+              </li> -->
+            </ul>
+            <div class="chatfield" style="text-align: center; margin-top : 230px;">
+              <input id="chatdata" type="text" name="chat" style="width:calc(95% - 75.639px);" class="mb-2"
+                placeholder="Type here..." style="display: inline" />
+
+              <a type="submit" class="btn btn-primary mb-2" style="display: inline; padding : 3.5px 20px;"
+                onclick="sendchat()">
+                send
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+  <!-- Notes form -->
+  <div id="showbody" class="container-fluid">
+    <div class="jumbotron">
+      <div class="form-group">
+        <label for="validationServerUsername">Title:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="validationServerUsername" placeholder="Title"
+            aria-describedby="inputGroupPrepend3" required />
+        </div>
+        <div class="form-group">
+          <label>Take note</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write here"></textarea>
+        </div>
+        <div class="align-right">
+          <button class="btn btn-primary" onclick="sendnotes()">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- feedback form-->
+  <div id="sendfeedback" class="container-fluid">
+    <div class="jumbotron">
+
+      <div class="form-group">
+        <h3>Feedback</h3>
+
+        <textarea class="form-control" id="feedtextarea" rows="5" placeholder="Write feedback here"></textarea>
+      </div>
+      <div class="align-right">
+        <button class="btn btn-primary" onclick="sendfeedback()">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- button list -->
+  <div id="buttonlists" class="container-fluid">
+    <div class="d-flex align-content-start flex-wrap">
+    </div>
+
+  </div>
+  <!-- meme -->
+  <div id="meme" class="container-fluid"></div>
+
+  <div id="iframes" class="container-fluid">
+    <iframe id="iframe2" src="" frameborder="0"
+      style="overflow: hidden; height: 100%; width: 95%; position: absolute"></iframe>
+  </div>
+  <!-- <div class="chatbtn">
+    <button class="border border-dark btn btn-info rounded-circle shadow-lg"
+      style="background-color: rgb(122, 224, 4);"><i class='fa fa-comment' style="color : black;"></i></button>
+  </div> -->
+  <div class="fixed-bottom text-center" style="color: white;z-index : -1; opacity : 0.5">Made for TechWithTim Code-Jam ,
+    © swasthik
+    shetty 2021 </div>
+  <!-- Info Default dropup button -->
+  <div class="bottomright">
+    <div class="btn-group dropup bottom">
+      <button type="button" class="border border-dark btn btn-info rounded-circle shadow-lg" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <a style="color: rgb(255, 255, 255)"><i class="fa fa-info"></i></a>
+      </button>
+      <ul class="dropdown-menu">
+        <h4 style="text-align: center">Need Help?</h4>
+        <!-- Dropdown menu links -->
+        <li style="text-align: center"><a href="/help"><i class="fa fa-star"></i>Features</a></li>
+        <li style="text-align: center"><a href="#" onclick="openchat(true)"><i class="fa fa-comment"></i>chat</a>
+        </li>
+        <li style="text-align: center"><a href="#" onclick="openfeedback()"><i
+              class="fa fa-paper-plane"></i>Feedback</a>
+        </li>
+        <li style="text-align: center"><a href="https://github.com/swasthikshetty10"><i
+              class="fa fa-github"></i>GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="devinfo"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <br>
+  <br>
+
+  <!-- loading scripts -->
+  <script src="{% static 'index.js' %}"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+</body>
+
+
+</html>

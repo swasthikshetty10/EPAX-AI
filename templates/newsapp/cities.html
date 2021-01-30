@@ -1,0 +1,104 @@
+{% extends 'newsapp/home.html' %} {% block content %}
+<h1 class="font-italic" style="text-align: center">
+  <b>TOP NEWS IN SOME CITIES</b>
+</h1>
+{% if num > 1 %}
+<p class="font-italic" style="text-align: center">
+  <button type="button" class="btn btn-outline-dark btn-sm">
+    Page {{num}}
+  </button>
+</p>
+{% endif %}
+<br />
+<div class="container-fluid">
+  {% for post in final_postings %}
+  <!-- titles , links , dates , descriptions , images -->
+  <div class="card mb-3" style="max-width: 1540px">
+    <div class="row col-md-*">
+      <div class="col-md-4">
+        <img src="{{ post.4 }}" class="card-img" alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <form action="{%url 'article'%}" method="post">
+            {% csrf_token %}
+            <input
+              type="hidden"
+              name="article_"
+              value="{{post.1}}"
+              placeholder="article_"
+            />
+            <a href="#" onclick="this.parentNode.submit()">
+              <h5 class="card-title">{{ post.0 }}</h5>
+            </a>
+          </form>
+          <p class="card-text">{{ post.3 }}</p>
+          <p class="card-text">
+            <small class="text-muted">{{ post.2 }}</small>
+          </p>
+          <form action="{% url 'article'%}" method="post">
+            {% csrf_token %}
+            <input
+              type="hidden"
+              name="article_"
+              value="{{ post.1}}"
+              placeholder="article_"
+            />
+            <button class="btn btn-info btn-sm" type="submit" name="action">
+              view full article
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if num == 1 %}
+    <li class="page-item">
+      <a class="page-link bg-success text-white" href="/cities/page/1"
+        >Previous</a
+      >
+    </li>
+    {% endif %} {% if num > 1 %}
+    <li class="page-item">
+      <a
+        class="page-link bg-dark text-white"
+        href="/cities/page/{{ num |add:'-1' }}"
+        >Previous</a
+      >
+    </li>
+    {% endif %}
+    <li class="page-item">
+      <a
+        class="page-link bg-success text-white"
+        href="/cities/page/{{ num |add:'1' }}"
+        >{{ num |add:"1"}}</a
+      >
+    </li>
+    <li class="page-item">
+      <a
+        class="page-link bg-success text-white"
+        href="/cities/page/{{ num |add:'2' }}"
+        >{{ num |add:"2"}}</a
+      >
+    </li>
+    <li class="page-item">
+      <a
+        class="page-link bg-success text-white"
+        href="/cities/page/{{num | add:'3'}}"
+        >{{num |add:"3"}}</a
+      >
+    </li>
+    <li class="page-item">
+      <a
+        class="page-link bg-dark text-white"
+        href="/cities/page/{{ num |add:'1' }}"
+        >Next</a
+      >
+    </li>
+  </ul>
+</nav>
+{% endblock content %}

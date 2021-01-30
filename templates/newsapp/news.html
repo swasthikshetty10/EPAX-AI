@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+<br>
+{% block content %}
+<div class = "container-fluid ">
+
+{% for post in final_postings %}
+
+<h2 class = "font-italic"style="text-align: center" >{{post.0}}</h2>
+<br>
+</a>
+<p class = "text-justify font-bold"style="text-align: center" >{{ post.1 }}</p>
+<br>
+<div class = "container" style="max-width: 750px;"><img src="{{ post.3 }}" class="img-fluid" alt="Responsive image"></div> 
+<br>
+{% for para in post.2 %}
+<p class = "text-justify"style="text-align: center">{{para}}</p>
+{% endfor %}
+
+{% endfor %}
+</div>
+<div  class="text-center">
+<form>
+    <input class = "btn btn-success "type=button value="Go Back" onClick="javascript:history.go(-1);">
+</form>
+</div>
+<br>
+{% endblock content %}
