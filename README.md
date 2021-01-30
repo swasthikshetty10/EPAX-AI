@@ -48,9 +48,9 @@ pip install -r requirements.txt
 <h4>2) configure database at AssistantWeb/settings.py</h4>
 <br>
 postgresql
+
 ```
 DATABASES = {
-
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -68,23 +68,20 @@ DATABASES = {
     }
 }
 ```
-sqlite3
-```
+<p>sqlite3</p>
 
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 ```
-
-
+<br>
 <h4>3) configure some api keys and add firebase_config.json with firebase credentials in Backend/AssistantFunctions </h4>
 <br>
 <h4>4) final step to run</h4>
-```
 python manage.py runserver
-```
+
 if you get any error while testing pleae contact me : gmail:  swasthikshetty10902@gmail.com
