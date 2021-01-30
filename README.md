@@ -36,17 +36,16 @@ A machine learning based ai assistant,which can assist you in a various field,  
 
 1) to install dependencies:
 <br>
-```bash
-$ cd EPAX-AI
-$ pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 <br>
 <br>
 2) configure database at AssistantWeb/settings.py
 <br>
-```python
 
-# postgresql
+postgresql
+```python
 DATABASES = {
 
     'default': {
@@ -65,8 +64,9 @@ DATABASES = {
 
     }
 }
-
-# or you can use sqllite3
+```
+sqlite3
+```
 
 DATABASES = {
     'default': {
