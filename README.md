@@ -83,10 +83,9 @@ DATABASES = {
 <br>
 <h4>4) final step to run</h4>
 <br>
-```
 python manage.py runserver
 
-```
 <br>
 
-if you get any error while testing pleae contact me : gmail:  swasthikshetty10902@gmail.com
+if you get any error while testing pleae contact me : 
+gmail:  swasthikshetty10902@gmail.com
