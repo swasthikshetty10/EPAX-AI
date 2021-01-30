@@ -82,6 +82,8 @@ DATABASES = {
 <h4>3) configure some api keys and add firebase_config.json with firebase credentials in Backend/AssistantFunctions </h4>
 <br>
 <h4>4) final step to run</h4>
+```
 python manage.py runserver
+```
 
 if you get any error while testing pleae contact me : gmail:  swasthikshetty10902@gmail.com
