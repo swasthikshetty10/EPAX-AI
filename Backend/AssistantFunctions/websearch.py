@@ -1,5 +1,5 @@
 import requests
-subscription_key = "6610794323334c428ff82f28ffdc53b0"
+subscription_key = "BING_SUB_KEY"
 assert subscription_key
 
 
