@@ -5,45 +5,47 @@ A machine learning based ai assistant,which can assist you in a various field,  
 
 
 ![Blueprint](https://media.discordapp.net/attachments/770563766370566180/805070659684139018/virtualassistant.html_-_Google_Chrome_30-01-2021_19_11_10_3.png)
-#HOW TO USE?
+<h2>HOW TO USE?<h2>
 <br>
+<h4>1) Visit https://epaxai.azurewebsites.net/ in your latest chrome browser (Note : use chrome only or else voice will not be recognised) </h4>
 <br>
-1) Visit https://epaxai.azurewebsites.net/ in your latest chrome browser (Note : use chrome only or else voice will not be recognised) 
-<br>
-2) Click on mic button and speak with epax ai ✔️
-<br>
+<h4>2) Click on mic button and speak with epax ai ✔️<h4>
+
 <img align="center"  src="https://cdn.discordapp.com/attachments/770563766370566180/805074123533451344/ezgif-5-5f38d8c31fd1.gif">
 
 <br>
 <br>
 
-3) if you dont want to speak you can even chat! ✔️
-<br>
+<h4>3) if you dont want to speak you can even chat! ✔️<h4>
+
 <img align="center"  src="https://cdn.discordapp.com/attachments/770563766370566180/805077620383416380/ezgif-5-d6f1b3e1c1b9.gif">
 <br>
 <br>
 
 
 
-4) has lots of features to use visit : https://epaxai.azurewebsites.net/help to know more ✔️
-<br>
+<h4>4) has lots of features to use visit : https://epaxai.azurewebsites.net/help to know more ✔️<h4>
+
 <img align="center"  src="https://cdn.discordapp.com/attachments/770563766370566180/805079326067392512/help.gif">
 <br>
 <br>
 <br>
-# HOW TO USE ON LOCALHOST(FOR DEVELOPER USE ONLY)
+
+
+<h2>HOW TO USE ON LOCALHOST(FOR DEVELOPER USE ONLY)</h2>
 <br>
 
-1) to install dependencies:
+<h4>1) to install dependencies:</h4>
 <br>
+
 ```
 pip install -r requirements.txt
 ```
 <br>
 <br>
-2) configure database at AssistantWeb/settings.py
-<br>
 
+<h4>2) configure database at AssistantWeb/settings.py</h4>
+<br>
 postgresql
 ```python
 DATABASES = {
@@ -66,7 +68,7 @@ DATABASES = {
 }
 ```
 sqlite3
-```
+```python
 
 DATABASES = {
     'default': {
@@ -78,5 +80,11 @@ DATABASES = {
 ```
 
 
+<h4>3) configure some api keys and add firebase_config.json with firebase credentials in Backend/AssistantFunctions </h4>
+<br>
+<h4>4) final step to run</h4>
+```
+> python manage.py runserver
+```
 
 
