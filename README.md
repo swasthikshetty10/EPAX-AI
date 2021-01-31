@@ -7,7 +7,16 @@
 
 <h3>
 A machine learning based ai assistant made for techwithtim code-jam 2021, which can assist you in a various field,  the complete guide to use is provided below😀( Note : Use in Chrome Browser only to use mic )<h3>
-
+    <div style = "text-align : center;">
+    <a href = "https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"><img src = "https://img.shields.io/badge/-TechWithTim-orange"></a>
+    <a href= "https://www.djangoproject.com/"><img src = "https://img.shields.io/badge/-Django-green"></a>
+    <a href="https://www.tensorflow.org/"><img src = "https://img.shields.io/badge/-Tensorflow-yellow"></a>
+    <a href="https://www.python.org/"><img src = "https://img.shields.io/badge/-Python-blue"></a>
+    <a href="https://www.javascript.com/"><img src = "https://img.shields.io/badge/-JavaScript-yellow"></a>
+    <a href="https://www.postgresql.org/"><img src = "https://img.shields.io/badge/-PostgreSQL-blue"></a>
+         <a href="https://www.html.com/"><img src = "https://img.shields.io/badge/-HTML-orange"></a>
+         <a href="https://www.css.org/"><img src = "https://img.shields.io/badge/-CSS-purple"></a>
+    </div>
 <br>
 <h2 style = "color : rgb(252, 119, 223);">🦾key Features:</h2>
 <ul>
@@ -47,7 +56,7 @@ A machine learning based ai assistant made for techwithtim code-jam 2021, which 
 
 
 
-<h4>4) has lots of features to use visit : <a href = "https://https://epaxai.azurewebsites.net/help" >https://epaxai.azurewebsites.net/help</a> to know more ✔️</h4>
+<h4>4) has lots of features to use visit : <a href = "https://epaxai.azurewebsites.net/help" >https://epaxai.azurewebsites.net/help</a> to know more ✔️</h4>
 
 <img align="center"  src="https://cdn.discordapp.com/attachments/770563766370566180/805079326067392512/help.gif">
 <br>
