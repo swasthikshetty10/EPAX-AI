@@ -6,7 +6,7 @@
 
 
 <h3>
-A machine learning based ai assistant made for techwithtim code-jam, which can assist you in a various field,  the complete guide to use is provided below😀 <h3>
+A machine learning based ai assistant made for techwithtim code-jam 2021, which can assist you in a various field,  the complete guide to use is provided below😀 (Note : Use in Chrome Browser only to use mic)<h3>
 
 <br>
 <h2 style = "color : rgb(252, 119, 223);">key Features:</h2>
@@ -112,6 +112,6 @@ python manage.py runserver
 <br>
 <br>
 <p>
-if you get any error while testing pleae contact me : 
-gmail:  swasthikshetty10902@gmail.com
+if you get any error while testing pleae contact me : <br>
+gmail: <a>swasthikshetty10902@gmail.com</a>
 </p>
