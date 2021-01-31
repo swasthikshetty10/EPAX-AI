@@ -39,7 +39,7 @@ A machine learning based ai assistant made for techwithtim code-jam 2021, which 
 <br>
 <br>
 
-<h4>3) if you dont want to speak you can even chat! ✔️<h4>
+<h4>3) if you dont want to speak you can even chat! , chick on info button to chat ✔️<h4>
 
 <img align="center"  src="https://cdn.discordapp.com/attachments/770563766370566180/805077620383416380/ezgif-5-d6f1b3e1c1b9.gif">
 <br>
