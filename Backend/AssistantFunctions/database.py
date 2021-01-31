@@ -2,6 +2,7 @@ import os
 import json
 import pyrebase
 
+
 config = json.loads(open("Backend/firebase_config.json","r").read())
 #print(config)
 
