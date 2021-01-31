@@ -1,7 +1,8 @@
 
 # [EPAX-AI](https://epaxai.azurewebsites.net/) [https://epaxai.azurewebsites.net/]
+<h3>
+A machine learning based ai assistant made for techwithtim code-jam, which can assist you in a various field,  the complete guide to use is provided below😀 <h3>
 
-A machine learning based ai assistant made for techwithtim code-jam, which can assist you in a various field,  the complete guide to use is provided below😀 
 <br>
 
 ![Blueprint](https://media.discordapp.net/attachments/770563766370566180/805070659684139018/virtualassistant.html_-_Google_Chrome_30-01-2021_19_11_10_3.png)
@@ -48,9 +49,9 @@ pip install -r requirements.txt
 <h4>2) configure database at AssistantWeb/settings.py</h4>
 <br>
 postgresql
+
 ```
 DATABASES = {
-
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -68,23 +69,27 @@ DATABASES = {
     }
 }
 ```
-sqlite3
-```
+<p>sqlite3</p>
 
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 ```
-
-
+<br>
 <h4>3) configure some api keys and add firebase_config.json with firebase credentials in Backend/AssistantFunctions </h4>
 <br>
-<h4>4) final step to run</h4>
+<h4>4) final step to run </h4>
 ```
 python manage.py runserver
 ```
-if you get any error while testing pleae contact me : gmail:  swasthikshetty10902@gmail.com
+
+<br>
+<br>
+<p>
+if you get any error while testing pleae contact me : 
+gmail:  swasthikshetty10902@gmail.com
+</p>
