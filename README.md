@@ -71,7 +71,7 @@ pip install -r requirements.txt
 <br>
 postgresql
 
-```
+```python
 DATABASES = {
     'default': {
 
@@ -92,7 +92,7 @@ DATABASES = {
 ```
 <p>sqlite3</p>
 
-```
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
