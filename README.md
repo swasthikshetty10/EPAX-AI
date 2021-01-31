@@ -1,14 +1,35 @@
 
+
+    
 # [EPAX-AI](https://epaxai.azurewebsites.net/) [https://epaxai.azurewebsites.net/]
+
+
+
 <h3>
 A machine learning based ai assistant made for techwithtim code-jam, which can assist you in a various field,  the complete guide to use is provided below😀 <h3>
 
 <br>
+<h2 style = "color : rgb(252, 119, 223);">key Features:</h2>
+<ul>
+<li>Voice Chat🗣️ <i style="opacity: 0.5;">(click on mic button to speak)</i></li>
+<li>QUESTIONS❓<i style="opacity: 0.5;"> (weather, information, maths etc)</i></li>
+<li>Note-Taking📝<i style="opacity: 0.5;">(just say take notes)</i></li>
+<li>Todo-List✔️ <i style="opacity: 0.5;">(say add todo)</i></li>
+<li>Optimised Web search🔍 <i style="opacity: 0.5;">(just say search and query)</i></li>
+<li>Translator🌎 <i style="opacity: 0.5;">(say translate [words to translate])</i></li>
+<li>Memes🤣  <i style="opacity: 0.5;">(just say show memes)</i> </li>
+<li>Play Music🎵   <i style="opacity: 0.5;">(play some music)</i></li>
+<li>Jokes😆  <i style="opacity: 0.5;">(say tell me a joke))</i></li>
+<li>play Games🎮  <i style="opacity: 0.5;">(just say play games)</i></li>
+<li>Text chat💬  <i style="opacity: 0.5;">(to enable click on the info button below)</i></li>
+
+</ul>
+<br>
 
 ![Blueprint](https://media.discordapp.net/attachments/770563766370566180/805070659684139018/virtualassistant.html_-_Google_Chrome_30-01-2021_19_11_10_3.png)
 <br>
-<h2>HOW TO USE?<h2>
 <br>
+<h2 style = "color : rgb(100, 235, 95);">HOW TO USE?<h2>
 <h4>1) Visit https://epaxai.azurewebsites.net/ in your latest chrome browser (Note : use chrome only or else voice will not be recognised) </h4>
 <br>
 <h4>2) Click on mic button and speak with epax ai ✔️<h4>
@@ -34,7 +55,7 @@ A machine learning based ai assistant made for techwithtim code-jam, which can a
 <br>
 
 
-<h2>HOW TO USE ON LOCALHOST(FOR DEVELOPER USE ONLY)</h2>
+<h2 style = "color : rgb(247, 48, 81);">HOW TO RUN ON LOCALHOST</h2>
 <br>
 
 <h4>1) to install dependencies:</h4>
@@ -83,6 +104,7 @@ DATABASES = {
 <h4>3) configure some api keys and add firebase_config.json with firebase credentials in Backend/AssistantFunctions </h4>
 <br>
 <h4>4) final step to run </h4>
+
 ```
 python manage.py runserver
 ```
