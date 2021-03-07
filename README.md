@@ -6,7 +6,7 @@
 
 
 <h3>
-A machine learning based ai assistant made for techwithtim code-jam 2021, which can assist you in a various field,  the complete guide to use is provided below😀( Note : Use in Chrome Browser only to use mic )<h3>
+A machine learning based ai assistant, which can assist you in a various fields,  the complete guide to use is provided below😀( Note : Use in Chrome Browser only to use mic )<h3>
     <div style = "text-align : center;">
     <a href = "https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"><img src = "https://img.shields.io/badge/-TechWithTim-orange"></a>
     <a href= "https://www.djangoproject.com/"><img src = "https://img.shields.io/badge/-Django-green"></a>
