@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 import django.http.request
 from pathlib import Path
+
+from dotenv import dotenv_values
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '@dxuib_9*pu+qy!z6o=+z(nyvlwd!%3n(v#an1au&)$8bo$lkx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,7 +51,7 @@ INSTALLED_APPS = [
 
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,23 +88,22 @@ WSGI_APPLICATION = 'AssistantsWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-
-# DATANASE USED
+dbconfig = dotenv_values(".env")
 DATABASES = {
 
     'default': {
 
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': dbconfig['ENGINE'],
 
-        'NAME': 'yor-postgresql-sql-database-name',
+        'NAME':  dbconfig['NAME'],
 
-        'USER': 'username',
+        'USER':  dbconfig['USER'],
 
-        'PASSWORD': 'password',
+        'PASSWORD':  dbconfig['PASSWORD'],
 
-        'HOST': 'host',
+        'HOST': dbconfig['HOST'],
 
-        'PORT': 'port_no',
+        'PORT':  dbconfig['PORT'],
 
     }
 }

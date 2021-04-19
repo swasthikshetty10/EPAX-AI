@@ -75,32 +75,30 @@ pip install -r requirements.txt
 <br>
 <br>
 
-<h4>2) configure database at AssistantWeb/settings.py</h4>
+<h4>2) configure database at .env file </h4>
 <br>
-postgresql
 
-```python
-DATABASES = {
-    'default': {
+```txt
+#postgresql
+# Database Setting
 
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+ENGINE =  django.db.backends.postgresql_psycopg2
 
-        'NAME': 'yor-postgresql-sql-database-name',
+NAME = db_name
 
-        'USER': 'username',
+USER = User_name
 
-        'PASSWORD': 'password',
+PASSWORD =  db_pswd
 
-        'HOST': 'host',
+HOST =  Host_url 
 
-        'PORT': 'port_no',
+PORT = 5432 #port
 
-    }
-}
 ```
-<p>sqlite3</p>
+<p>for sqlite3 or other database setting change database in AssistantsWeb/settings.py </p>
 
 ```python
+#SqlLite3 example
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -109,11 +107,28 @@ DATABASES = {
 }
 ```
 <br>
-<h4>3) configure some api keys and add firebase_config.json with firebase credentials in Backend/AssistantFunctions </h4>
+<h4>3) configure some api keys in .env</h4>
+
+```python
+# Bing search Api subscription_key 
+subscription_key = API_key@@@ 
+
+
+# wolframalpha Api key
+app_id = API_APP_ID
+
+#reddit api 
+REDDIT_CLIENT_ID = Client_Id1
+REDDIT_CLIENT_SECRET = CLient_SecRET2
+REDDIT_USER_AGENT = EPAX_AI
+```
+
 <br>
 <h4>4) final step to run </h4>
 
 ```
+python manage.py makemigrations
+
 python manage.py runserver
 ```
 

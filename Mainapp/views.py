@@ -1,25 +1,24 @@
+from Mainapp import models
 from django.db.models.base import Model
 from django.shortcuts import render, HttpResponse
 from Backend import assistant
-from django.http import JsonResponse, HttpResponse
-from Backend.AssistantFunctions import database, websearch
+from django.http import JsonResponse, HttpResponse, request
+from Backend.AssistantFunctions import websearch
 import json
-from . import models
+from .models import Todo, UserNotes as Notes, Todo
+
 # Create your views here.
 
 
 def home(request):
-    x = request.user
-    print(x.id)
     return render(request, 'Mainapp/base.html')
 
 
-def feedbackpage(request):
-    # length = models.feedback.objects.all().count()
-    data_obj = models.feedback.objects.all().order_by("user")
-    # print(data_obj)
-    return render(request, 'Mainapp/feedback.html', {
-        "feedback": data_obj})
+def response(request, content):
+    print(content)
+    data = assistant.assistant_response(content)
+
+    return JsonResponse(data)
 
 
 def searchengine(request, query):
@@ -54,20 +53,12 @@ def test(request):
     return render(request, 'Mainapp/test.html')
 
 
-def response(request, content):
-    print(content)
-    data = assistant.miku_speak(content)
-
-    return JsonResponse(data)
-
-
 def userdata(request):
     username = request.user
     userid = request.user.id
-    usertodo = len(database.list_tasks(userid))
-    print(usertodo)
-    usernotes = len(assistant.noteslist(userid))
-    print(usernotes)
+    usertodo = len(Todo.objects.filter(user=request.user))
+    usernotes = len(Notes.objects.filter(user=request.user))
+
     userdata = {
         "username": str(username),
         "userid": str(userid),
@@ -79,68 +70,45 @@ def userdata(request):
 
 
 def sendnotes(requests, title, notes):
+    notes = Notes.objects.create(user=requests.user, title=title, value=notes)
+    notes.save()
 
-    data = {
-        'id': requests.user.id,
-        'title': title,
-        'notes': notes,
+    print(notes)
+    stuff = {
+        "response": "Done Say show notes to view",
     }
-    result = assistant.sendnotes(data)  # notes is dictionary
-    if result:
-        stuff = {
-            "response": "Done",
-        }
-    else:
-        stuff = {
-            "response": "sorrt some thing whent wrong",
-        }
     return JsonResponse(stuff)
 
 
 def deletenotes(requests, title):
-
-    data = {
-        'id': requests.user.id,
-        'title': title,
+    notes = Notes.objects.filter(user=requests.user).get(title=title)
+    notes.delete()
+    stuff = {
+        "response": "successfully deleted your note"
     }
-    done = assistant.deletenotes(data)
-
-    if done:
-        stuff = {
-            "response": "successfully deleted your note"
-        }
-    else:
-        stuff = {
-            "response": "successfully deleted your note"
-        }
     return JsonResponse(stuff)
 
 
 def shownotes(requests):
-    result = assistant.noteslist(requests.user.id)
-    if result != False:
-        stuff = {
-            "amount":  len(result),
-            "titles": result
-        }
-    else:
-        stuff = {
-            "amount":  0,
-            "titles": None
-        }
+    data = Notes.objects.filter(user=requests.user).order_by("-date")
+    print(data)
+    stuff_for_frontend = {}
+    for note in data:
+        stuff_for_frontend[note.title] = note.value
+
+    # print([i.title for i in data])
+    stuff = {
+        "amount":  len(stuff_for_frontend),
+        "titles": stuff_for_frontend
+    }
     return JsonResponse(stuff)
 
 
 def readnotes(requests, title: str):
-    result = assistant.readnotes(usr_id=requests.user.id, title=title)
-    if result != False:
-        stuff = {
-            "response": result
-        }
-    else:
-        stuff = {
-            "response": "sorry i could not find your notes"
-        }
+
+    stuff = {
+        "response": "sorry i could not find your notes"
+    }
     return JsonResponse(stuff)
 
 
@@ -193,3 +161,11 @@ def feedback(requests, value: str):
                 "response": "sorry something went wrong. could not send your feedback"}
 
     return JsonResponse(result)
+
+
+def feedbackpage(request):
+    # length = models.feedback.objects.all().count()
+    data_obj = models.feedback.objects.all().order_by("user")
+    # print(data_obj)
+    return render(request, 'Mainapp/feedback.html', {
+        "feedback": data_obj})

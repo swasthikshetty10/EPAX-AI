@@ -1,5 +1,9 @@
 import requests
-subscription_key = "BING_SUB_KEY"
+
+
+from dotenv import dotenv_values
+config = dotenv_values(".env")
+subscription_key = config["subscription_key"]
 assert subscription_key
 
 

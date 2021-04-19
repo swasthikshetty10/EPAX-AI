@@ -1,8 +1,11 @@
 from urllib.parse import quote_plus
 import webbrowser
+from howdoi import howdoi
 # from bs4 import BeautifulSoup as bs
 # import requests
-def stackoverflow(question = None):
+
+
+def stackoverflow(question=None):
     question = quote_plus(question)
     url = f'https://stackoverflow.com/search?q={question}&s=513e6549-a9d9-462a-ae1c-81199bb30247'
     webbrowser.open(url)
@@ -10,5 +13,24 @@ def stackoverflow(question = None):
     # page = requests.get(url ,headers=header)
     # soup = bs(page.content,'html.parser').prettify()
     # print(soup)
-    
+
 #stackoverflow('pyaudio error')
+
+
+def askhow(query):
+    if 'how do i ' in query:
+        query = query.replace("how do i ", '')
+
+    if 'how to ' in query:
+        query = query.replace("how to ", '')
+    if 'how ' in query:
+        query = query.replace("how ", '')
+    if 'write ' in query:
+        query = query.replace("write ", '')
+    if 'use ' in query:
+        query = query.replace("use ", '')
+    # parser = howdoi.get_parser()
+    # args = vars(parser.parse_args(query.split(' ')))
+    # print(query)
+    output = howdoi.howdoi(query)
+    return output

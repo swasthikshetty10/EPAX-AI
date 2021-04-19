@@ -1,4 +1,3 @@
-
 {
   "intents": [
     {
@@ -2164,6 +2163,26 @@
         "yes i like you. you are one of my best friend",
         "ya indeed i like you",
         "ya you are my best friend"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "good",
+      "patterns": [
+        "good",
+        "nice",
+        "lovely",
+        "great",
+        "wonderful",
+        "awesome",
+        "amazing"
+        
+      ],
+      "responses": [
+        "good to here that",
+        "great!",
+        "oh great!",
+        "amazing"
       ],
       "context_set": ""
     }

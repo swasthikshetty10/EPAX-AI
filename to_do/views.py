@@ -1,11 +1,15 @@
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from django.utils import timezone
 from django.http import HttpResponseRedirect
-from to_do import database
+from Mainapp.models import Todo
+from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
+
 # Create your views here.
+
+
 def home(request):
-    todo_items = database.list_tasks(request.user.id)
+    todo_items = Todo.objects.filter(user=request.user).order_by("-date")
+    # it will order by added date
     return render(request, 'to_do/index.html', {
         "todo_items": todo_items,
     })
@@ -13,15 +17,18 @@ def home(request):
 
 @csrf_exempt
 def add_todo(request):  # post method is used to get data  from index.html
-    usrid = request.user.id
+    current_date = timezone.now()
+    print(current_date)
+    print(type(current_date))
     content = request.POST['content']
-    # created_obj = Todo.objects.create(added_date=current_date, text=content)  # creating object
-    # length_of_todos = Todo.objects.all().count()  # returns no of element in database
-    database.add_task(id_=usrid , task = content)
+    created_obj = Todo.objects.create(user=request.user,
+                                      title=content, details=content)  # creating object
+    # returns no of element in database
+    length_of_todos = Todo.objects.filter(user=request.user)
     return HttpResponseRedirect('/todo')
 
 
 @csrf_exempt
 def delete_todo(request, todo_id):
-    database.del_task(request.user.id , todo_id)
+    Todo.objects.filter(user=request.user).get(title=todo_id).delete()
     return HttpResponseRedirect('/todo')

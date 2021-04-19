@@ -79,6 +79,19 @@ function get_from_api(message) { // getting response from ml model
 }
 
 
+function startup_backend() { // getting response from ml model
+  var url = `/response/hi`;
+
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      // console.log(data)
+    });
+
+}
+startup_backend();
 
 function get_user_data() { //hhtp request for user data
   var url = "/userdata";
@@ -182,39 +195,31 @@ function shownotes() { //deleting notes
     })
     .then(data => {
       console.log(data.amount)
-      var key = Object.keys(data.titles)
-      console.log(key)
+      console.log(data.titles)
+      // let key = Object.keys(data.titles)
+      // console.log(key)
       document.getElementById("buttonlists").innerHTML = document.getElementById("buttonlists").innerHTML = `<h4 style="color:white;">click to read notes:</h4> <br>`
-      for (i = 0; i < data.amount; i++) {
-        document.getElementById("buttonlists").innerHTML = document.getElementById("buttonlists").innerHTML + `       <button type="button" class="btn btn-outline-primary" onclick ="readnotes('${key[i]}')" style = "width : 100%">${key[i]}</button><br>`
+      for (const title_ in data.titles ) {
+        document.getElementById("buttonlists").innerHTML = document.getElementById("buttonlists").innerHTML + `       <button type="button" class="btn btn-outline-primary" onclick ="readnotes('${title_}' , '${data.titles[title_]}')" style = "width : 100%">${title_}</button><br>`
       }
-
 
     });
 
 }
 
-function readnotes(title) {
+function readnotes(title , value) {
   document.getElementById("buttonlists").innerHTML = "";
-  var url = `/readnotes/${title}`;
-  fetch(url)
-    .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      if (data.response !== "sorry i could not found your notes") {
+
+   
         document.getElementById("meme").innerHTML = `<div class="card w-75">
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
-        <p class="card-text">${data.response}</p>
+        <p class="card-text">${value}</p>
       </div>
     </div>`;
-        readOutLoud(data.response)
-      } else {
-        readOutLoud(data.response)
-      }
-
-    });
+        readOutLoud(value)
+      
+    
 }
 
 function jokes() { // http request for jokes
