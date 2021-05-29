@@ -6,9 +6,13 @@ import wolframalpha
 # from selenium.webdriver.chrome.options import Options
 # from webdriver_manager.chrome import ChromeDriverManager
 # import requests
-from dotenv import dotenv_values
+import environ
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
 
-app_id = dotenv_values(".env")['app_id']
+
+app_id = env('app_id')
 client = wolframalpha.Client(app_id)
 
 

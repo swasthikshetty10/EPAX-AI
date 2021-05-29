@@ -1,9 +1,11 @@
 import requests
 
 
-from dotenv import dotenv_values
-config = dotenv_values(".env")
-subscription_key = config["subscription_key"]
+import environ
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+subscription_key = env("subscription_key")
 assert subscription_key
 
 

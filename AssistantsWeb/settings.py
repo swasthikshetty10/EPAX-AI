@@ -9,11 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import environ
 import os
 import django.http.request
 from pathlib import Path
 
-from dotenv import dotenv_values
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 2
-
+SECRET_KEY = '@dxuib_9*pu+qy!z6o=+z(nyvlwd!%3n(v#an1au&)$8bo$lkx'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,22 +84,25 @@ WSGI_APPLICATION = 'AssistantsWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-dbconfig = dotenv_values(".env")
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
 DATABASES = {
 
     'default': {
 
-        'ENGINE': dbconfig['ENGINE'],
+        'ENGINE': env('ENGINE'),
 
-        'NAME':  dbconfig['NAME'],
+        'NAME':  env('NAME'),
 
-        'USER':  dbconfig['USER'],
+        'USER':  env('USER'),
 
-        'PASSWORD':  dbconfig['PASSWORD'],
+        'PASSWORD':  env('PASSWORD'),
 
-        'HOST': dbconfig['HOST'],
+        'HOST': env('HOST'),
 
-        'PORT':  dbconfig['PORT'],
+        'PORT':  env('PORT'),
 
     }
 }

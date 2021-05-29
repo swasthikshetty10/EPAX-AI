@@ -64,7 +64,7 @@ opt-einsum==3.3.0
 praw==7.1.0
 prawcore==1.5.0
 protobuf==3.14.0
-psycopg2==2.8.6
+psycopg2-binary
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
@@ -88,13 +88,6 @@ six==1.15.0
 sniffio==1.2.0
 soupsieve==2.1
 sqlparse==0.4.1
-tensorboard==2.4.0
-tensorboard-plugin-wit==1.7.0
-tensorflow==2.4.0
-tensorflow-estimator==2.4.0
-termcolor==1.1.0
-terminaltables==3.1.0
-threadpoolctl==2.1.0
 tqdm==4.56.0
 typing-extensions==3.7.4.3
 update-checker==0.18.0
@@ -106,4 +99,4 @@ wikipedia==1.4.0
 wolframalpha==4.1.1
 wrapt==1.12.1
 xmltodict==0.12.0
-python-dotenv
+django-environ
