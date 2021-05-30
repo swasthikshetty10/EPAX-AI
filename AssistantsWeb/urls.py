@@ -22,13 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Mainapp.urls')),
     path('todo/', include('to_do.urls')),
-    path('news/', include('newsapp.urls')),
     path('accounts/', include('allauth.urls')),
     path('login/', TemplateView.as_view(template_name="account/login.html")),
     path('accounts/profile/', TemplateView.as_view(template_name="account/user.html")),
-    # path('iframe/', TemplateView.as_view(template_name="Mainapp/base.html"),
-    #                name='testgame')
     path('help/', TemplateView.as_view(template_name="Mainapp/help.html")),
     path('games/', TemplateView.as_view(template_name="Mainapp/games.html")),
-    # path('accounts/login/', TemplateView.as_view(template_name="account/login.html")),
 ]
